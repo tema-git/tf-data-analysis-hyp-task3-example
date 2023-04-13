@@ -1,10 +1,9 @@
 import pandas as pd
 import numpy as np
-from scipy.stats import mannwhitneyu
+from scipy import stats
 chat_id = 401141478
 
-def solution(x: np.array, y: np.array) -> bool:
+def solution(rvs1, rvs2) -> bool:
     sl = 0.09
-    pval = mannwhitneyu(x, y, alternative='two-sided').pvalue
-    
+    t, pval = stats.ttest_ind(rvs1, rvs2, equal_var=False)
     return pval < sl
