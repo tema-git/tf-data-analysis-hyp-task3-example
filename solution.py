@@ -5,6 +5,6 @@ chat_id = 401141478
 
 def solution(x: np.array, y: np.array) -> bool:
     sl = 0.09
-    pval = mannwhitneyu(x, y, alternative="less").pvalue
+    pval = mannwhitneyu(x, y, alternative="greater").pvalue
     
     return pval < sl
